@@ -19,7 +19,3 @@ class Stack():
     def push(self, x):
         self.stack.append(x)
         self.length += 1
-    def print(self):
-        for x in self.stack:
-            print(x, end=' ')
-        print()

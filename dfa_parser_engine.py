@@ -15,7 +15,7 @@ def ValidDFA(input_file):
                 return 0
     stack = Stack()
     freq = [0 for i in range(len(States))]
-    freq[0] = 1
+    freq[Starting_States[0]] = 1
     stack.push(Starting_States[0])
     while stack.size() > 0:
         top = stack.top()
