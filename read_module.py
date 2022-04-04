@@ -33,9 +33,14 @@ def Read(input_file):
                 line = list(line)
                 if int(line[0]) not in DFA:
                     DFA[int(line[0])] = {}
-                    DFA[int(line[0])][int(line[2])] = line[1]
+                    DFA[int(line[0])][int(line[2])] = []
+                    DFA[int(line[0])][int(line[2])].append(line[1])
                 else:
-                    DFA[int(line[0])][int(line[2])] = line[1]
+                    if int(line[2]) in DFA[int(line[0])]:
+                        DFA[int(line[0])][int(line[2])].append(line[1])
+                    else:
+                        DFA[int(line[0])][int(line[2])] = []
+                        DFA[int(line[0])][int(line[2])].append(line[1])
                 line = inFile.readline().rstrip()
             info_read += 1
         if info_read == 3:
